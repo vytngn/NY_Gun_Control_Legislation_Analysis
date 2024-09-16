@@ -6,34 +6,34 @@ The purpose of this project was to investigate the relationship between New York
 
 1. **Setting up the API endpoint and key** 
 
-   <img src="/Users/avieng/Downloads/final.py (1).png" alt="final.py (1)" style="zoom:50%;" />
+  
 
    This code set up the API endpoint URL and the API key required for accessing the New York Time API. 
 
 2. **Defining search parameters**
 
-   <img src="/Users/avieng/Downloads/final.py.png" alt="final.py" style="zoom:50%;" />
+   
 
    - This snippet defines parameters for querying the New York Times API to retrieve relevant articles. It specifies search criteria such as the query `gun control`, filters for articles from the New York section, and narrows down by geographic location containing `"New York"` to include results from New York State. The date range from January 1, 2014, to December 31, 2023, ensures articles within a 10-year period. The initial page number for pagination is set to 0. This snippet is crucial for specifying criteria to retrieve relevant articles from The New York Times archive, essential for analyzing gun control legislation coverage over the specified period.
 
 3. **Function to get total numbers of hits** 
 
-   ![final.py (2)](/Users/avieng/Downloads/final.py (2).png)
+   
 
    - `get_hits` retrieves the total number of articles (hits) related to a given query. It takes an optional parameter, query, which defaults to 'gun control' if not specified. By counting the volume of the articles, the function forms the basis for the data extraction phase.
 
 4. **Function to get content for a specific page** 
 
-   ![](/Users/avieng/Downloads/final.py (3).png)
+   
 
    - The  function takes the `page_num` parameter, indicating the page number of search results, constructs the API request URL, sends a GET request, and parses the JSON response to extract the content of articles from the response. This function allows for efficient iteration through multiple pages of search results, enabling comprehensive data extraction. 
 
-5. **Extracting and Storing Article Data**![final.py (6)](/Users/avieng/Downloads/final.py (6).png) 
+5. **Extracting and Storing Article Data**
 
    - This code snippet iterates through each article obtained from the API search results and extracts relevant information such as the publication year, headline, URL, and keywords. It then stores this information in a dictionary named `article_dict`. The publication year is extracted from the 'pub_date' field of the article and truncated to include only the year. The headline and URL are extracted from their respective fields in the article data. Keywords are extracted from the 'keywords' field, and a list of keywords is created and stored in the 'keyword' key of the `article_dict` dictionary.
    - This extracted data servers as raw input that will be stored in the subsequence phases of the ETL process. 
 
-6. **Write Data to Pickle File**![final.py (7)](/Users/avieng/Downloads/final.py (7).png)
+6. **Write Data to Pickle File**
 
    - This code snippet is crucial for saving the extracted article data into pickle files. 
    - Each pickle file contains the article data for a specific page of search results. 
@@ -65,17 +65,17 @@ Notably, there appears to be a correlation between peaks in shooting incidents a
 
 *gun_control_legislation.csv*
 
-<img src="/Users/avieng/Desktop/Screenshot 2024-05-07 at 10.01.41 PM.png" alt="Screenshot 2024-05-07 at 10.01.41 PM" style="zoom:50%;" />
+
 
 **Visualization of the Article Counts** 
 
-<img src="/Users/avieng/Library/Application Support/typora-user-images/image-20240507193459805.png" alt="image-20240507193459805" style="zoom:50%;" />
+>
 
 
 
 **Shooting Incidents of GIVE Shooting Activity Report from year 2014 to 2024**
 
-<img src="/Users/avieng/Library/Application Support/typora-user-images/image-20240507194217096.png" alt="image-20240507194217096" style="zoom:50%;" />
+
 
 # Conclusion
 
